@@ -1,0 +1,52 @@
+apply plugin: 'android'
+
+android {
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        packageName "com.gundf.fertighaus"
+        minSdkVersion 14
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile (
+            'com.github.kevinsawicki:http-request:5.2',
+            'org.roboguice:roboguice:2.0',
+            'com.google.code.gson:gson:2.2.4',
+            'com.squareup.retrofit:retrofit:1.2.2',
+            'com.octo.android.robospice:robospice:1.4.12',
+            'com.octo.android.robospice:robospice-retrofit:1.4.12',
+            'com.octo.android.robospice:robospice-ormlite:1.4.12',
+            'com.octo.android.robospice:robospice-spring-android:1.4.12',
+            'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE',
+            'com.j256.ormlite:ormlite-android:4.46')
+
+    compile('org.simpleframework:simple-xml:2.7.1') {
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'xpp3', module: 'xpp3'
+    }
+}
