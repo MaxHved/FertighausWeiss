@@ -1,1 +1,1 @@
-include ':FertighausWeiss'
+include ':FertighausWeiss', 'libraries:SlidingMenu'
