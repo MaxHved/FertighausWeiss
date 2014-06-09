@@ -2,10 +2,13 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="16dp"
-                android:background="@android:color/holo_blue_dark">
+                android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,7 +17,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -24,71 +28,130 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/label_title_request_form"
+                android:textColor="@android:color/white"
+                />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginTop="16dp"
+                android:inputType="text"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:hint="@string/hint_name"
+                android:background="@drawable/rectangle_border"/>
+
+            <EditText
+                android:id="@+id/surname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                android:inputType="text"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:hint="@string/hint_surname"
+                android:background="@drawable/rectangle_border"/>
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                android:inputType="textEmailAddress"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:hint="@string/hint_email"
+                android:background="@drawable/rectangle_border"/>
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                android:inputType="phone"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:hint="@string/hint_phone"
+                android:background="@drawable/rectangle_border"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true"/>
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+
+                android:background="@drawable/rectangle_border"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true"/>
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"/>
+                android:background="@drawable/rectangle_border"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
 
                 <CheckBox
-                    android:id="@+id/check_box1"
+                    android:id="@+id/ar_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"/>
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/check_box1"
+                    android:layout_toLeftOf="@id/ar_code"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:text="@string/label_check_ar_code_house"
                     />
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
 
                 <CheckBox
-                    android:id="@+id/check_box2"
+                    android:id="@+id/catalog"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"/>
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/check_box2"
+                    android:layout_toLeftOf="@id/catalog"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:text="@string/label_check_catalog"
                     />
+
 
             </RelativeLayout>
 
@@ -99,6 +162,7 @@
                 android:drawableTop="@drawable/ic_send"
                 android:text="@string/label_send_button"
                 android:background="@android:color/transparent"
+                android:textColor="@android:color/darker_gray"
                 android:layout_gravity="center_horizontal"/>
 
         </LinearLayout>

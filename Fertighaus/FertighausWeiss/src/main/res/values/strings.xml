@@ -12,5 +12,13 @@
     <string name="label_menu_map">Landkarte</string>
     <string name="label_menu_info">Über</string>
 
+    <string name="label_title_request_form">Hier können Sie direkt unseren Katalog oder den Musterhaus-AR-Code kostenlos bestellen:</string>
+    <string name="hint_name">Vorname</string>
+    <string name="hint_surname">Nachname</string>
+    <string name="hint_email">E-Mail</string>
+    <string name="hint_phone">Telefon</string>
+    <string name="label_check_ar_code_house">Musterhaus-AR-Code bestellen</string>
+    <string name="label_check_catalog">Katalog bestelen</string>
+
 
 </resources>

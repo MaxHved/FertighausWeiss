@@ -35,9 +35,9 @@ public class MenuFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ListView listView = getListView();
-//        mHeader = getActivity().getLayoutInflater().
-//                inflate(R.layout.header_navigation_menu, listView, false);
-//        listView.addHeaderView(mHeader, null, false);
+        View header = getActivity().getLayoutInflater().
+                inflate(R.layout.header_menu, listView, false);
+        listView.addHeaderView(header, null, false);
         listView.setAdapter(mMenuAdapter);
     }
 }

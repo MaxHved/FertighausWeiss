@@ -15,7 +15,7 @@ import com.gundf.fertighaus.fragments.MenuFragment;
 import com.gundf.fertighaus.fragments.RequestFragment;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements MenuFragment.NavigationCallbacks {
 
     private DrawerLayout mDrawerLayout;
     private Fragment mMenuFragment;
@@ -97,6 +97,12 @@ public class MainActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+
+    }
+
+
+    @Override
+    public void direction(Class navigate) {
 
     }
 }
