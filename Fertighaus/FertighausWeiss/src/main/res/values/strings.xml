@@ -3,5 +3,14 @@
 
     <string name="app_name">FertighausWeiss</string>
 
+    <string name="label_send_button">Senden</string>
+    <string name="label_menu_gallery">Häusergalerie</string>
+    <string name="label_menu_news">News / Aktionen</string>
+    <string name="label_menu_catalog">Kataloge</string>
+    <string name="label_menu_panorama">360\u00B0</string>
+    <string name="label_menu_augmented_reality">Augmented Reality</string>
+    <string name="label_menu_map">Landkarte</string>
+    <string name="label_menu_info">Über</string>
+
 
 </resources>
