@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import com.gundf.fertighaus.R;
 import com.gundf.fertighaus.fragments.MenuFragment;
+import com.gundf.fertighaus.fragments.NewsFragment;
 import com.gundf.fertighaus.fragments.RequestFragment;
 
 
@@ -28,12 +29,12 @@ public class MainActivity extends Activity implements MenuFragment.NavigationCal
         setContentView(R.layout.activity_main);
         FragmentManager fm = getFragmentManager();
         mContainerFragment = fm.findFragmentById(R.id.content_frame);
-//        if(mContainerFragment == null) {
-//            mContainerFragment = createContainerFragment();
-//            fm.beginTransaction().
-//                    replace(R.id.fragment_container, mContainerFragment).
-//                    commit();
-//        }
+        if(mContainerFragment == null) {
+            mContainerFragment = new NewsFragment();
+            fm.beginTransaction().
+                    replace(R.id.content_frame, mContainerFragment).
+                    commit();
+        }
         mMenuFragment = fm.findFragmentById(R.id.left_frame);
         if(mMenuFragment == null) {
             mMenuFragment = new MenuFragment();
