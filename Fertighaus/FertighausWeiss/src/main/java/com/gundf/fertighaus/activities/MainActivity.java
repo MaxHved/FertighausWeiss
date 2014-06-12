@@ -99,7 +99,6 @@ public class MainActivity extends Activity implements MenuFragment.NavigationCal
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
 

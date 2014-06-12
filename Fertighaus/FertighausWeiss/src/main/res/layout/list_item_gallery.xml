@@ -5,13 +5,13 @@
                 android:layout_height="176dp">
 
     <ImageView
-        android:id="@+id/image_panorama"
+        android:id="@+id/image_gallery"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"/>
 
     <TextView
-        android:id="@+id/label_panorama"
+        android:id="@+id/label_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"

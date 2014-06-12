@@ -1,12 +1,17 @@
 package com.gundf.fertighaus.models.panoramas;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 import com.gundf.fertighaus.models.picture.Picture;
 
 import java.util.List;
 
-public class PanoramaItemContent {
+public class PanoramaItemContent implements Parcelable{
+
+    public static final String EXTRA_PANORAMA_ITEM_CONTENT = "extra_panorama_item_content";
 
     @SerializedName(value = "id")
     private long mID;
@@ -77,6 +82,40 @@ public class PanoramaItemContent {
     public void setUpdatedAt(String updatedAt) {
         mUpdatedAt = updatedAt;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    private PanoramaItemContent(Parcel in) {
+        mID = in.readLong();
+        mName = in.readString();
+        mPicture = in.readParcelable(Picture.class.getClassLoader());
+        mUrl = in.readString();
+        mCreatedAt = in.readString();
+        mUpdatedAt = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(mID);
+        dest.writeString(mName);
+        dest.writeParcelable(mPicture, flags);
+        dest.writeString(mUrl);
+        dest.writeString(mCreatedAt);
+        dest.writeString(mUpdatedAt);
+    }
+
+    public static final Parcelable.Creator<PanoramaItemContent> CREATOR = new Parcelable.Creator<PanoramaItemContent>() {
+        public PanoramaItemContent createFromParcel(Parcel in) {
+            return new PanoramaItemContent(in);
+        }
+
+        public PanoramaItemContent[] newArray(int size) {
+            return new PanoramaItemContent[size];
+        }
+    };
 
     private class list {
         @SerializedName(value = "list")

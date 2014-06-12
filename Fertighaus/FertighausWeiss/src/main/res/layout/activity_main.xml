@@ -11,13 +11,13 @@
 
     <FrameLayout
         android:id="@+id/left_frame"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="left"/>
 
     <FrameLayout
         android:id="@+id/right_frame"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="right"/>
 

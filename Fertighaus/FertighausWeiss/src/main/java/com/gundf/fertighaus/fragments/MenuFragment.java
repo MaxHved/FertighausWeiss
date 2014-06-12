@@ -41,6 +41,7 @@ public class MenuFragment extends ListFragment {
         listView.setAdapter(mMenuAdapter);
 
         mCallbacks = (NavigationCallbacks) getActivity();
+
     }
 
     @Override

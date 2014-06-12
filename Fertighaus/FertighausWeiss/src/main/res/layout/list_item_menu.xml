@@ -22,7 +22,7 @@
             android:textColor="@android:color/white"
             android:layout_toRightOf="@id/menu_image"
             android:gravity="center_vertical"
-            android:paddingLeft="40dp"/>
+            android:layout_marginLeft="16dp"/>
 
 </RelativeLayout>
 
