@@ -10,9 +10,11 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.maps.MapsInitializer;
 import com.gundf.fertighaus.R;
+import com.gundf.fertighaus.enumerable.MenuItems;
+import com.gundf.fertighaus.fragments.GalleryHousesFragment;
 import com.gundf.fertighaus.fragments.MenuFragment;
-import com.gundf.fertighaus.fragments.NewsFragment;
 import com.gundf.fertighaus.fragments.RequestFragment;
 
 
@@ -30,10 +32,11 @@ public class MainActivity extends Activity implements MenuFragment.NavigationCal
         FragmentManager fm = getFragmentManager();
         mContainerFragment = fm.findFragmentById(R.id.content_frame);
         if(mContainerFragment == null) {
-            mContainerFragment = new NewsFragment();
-            fm.beginTransaction().
-                    replace(R.id.content_frame, mContainerFragment).
-                    commit();
+            updateContentFragment(new GalleryHousesFragment());
+//            mContainerFragment = new PanoramasFragment();
+//            fm.beginTransaction().
+//                    replace(R.id.content_frame, mContainerFragment).
+//                    commit();
         }
         mMenuFragment = fm.findFragmentById(R.id.left_frame);
         if(mMenuFragment == null) {
@@ -51,6 +54,8 @@ public class MainActivity extends Activity implements MenuFragment.NavigationCal
         }
         initDrawerLayout();
         initActionBar();
+
+        MapsInitializer.initialize(this);
     }
 
     private void initDrawerLayout() {
@@ -103,7 +108,16 @@ public class MainActivity extends Activity implements MenuFragment.NavigationCal
 
 
     @Override
-    public void direction(Class navigate) {
+    public void direction(MenuItems item) {
+        updateContentFragment(item.getFragment());
+        mDrawerLayout.closeDrawer(Gravity.LEFT);
+    }
 
+    private void updateContentFragment(Fragment fragment) {
+        mContainerFragment = fragment;
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().
+                replace(R.id.content_frame, mContainerFragment).
+                commit();
     }
 }

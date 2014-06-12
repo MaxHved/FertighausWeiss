@@ -32,6 +32,7 @@ public class CatalogAdapter extends BaseAdapter{
                 .showImageOnLoading(R.drawable.ic_launcher) //TODO
                 .showImageForEmptyUri(R.drawable.ic_launcher) //TODO
                 .cacheInMemory(true)
+                .cacheOnDisk(true)
                 .build();
     }
 

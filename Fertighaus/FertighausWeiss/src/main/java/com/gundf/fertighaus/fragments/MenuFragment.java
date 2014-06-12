@@ -9,11 +9,12 @@ import android.widget.ListView;
 
 import com.gundf.fertighaus.R;
 import com.gundf.fertighaus.adpters.MenuAdapter;
+import com.gundf.fertighaus.enumerable.MenuItems;
 
 public class MenuFragment extends ListFragment {
 
     public interface NavigationCallbacks {
-        public void direction(Class navigate);
+        public void direction(MenuItems item);
     }
 
     private NavigationCallbacks mCallbacks;
@@ -27,8 +28,7 @@ public class MenuFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_menu, null);
-        return view;
+        return inflater.inflate(R.layout.fragment_menu, null);
     }
 
     @Override
@@ -39,5 +39,13 @@ public class MenuFragment extends ListFragment {
                 inflate(R.layout.header_menu, listView, false);
         listView.addHeaderView(header, null, false);
         listView.setAdapter(mMenuAdapter);
+
+        mCallbacks = (NavigationCallbacks) getActivity();
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        MenuItems item = mMenuAdapter.getItem((int)id); // because has header
+        mCallbacks.direction(item);
     }
 }

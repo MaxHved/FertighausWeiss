@@ -1,6 +1,15 @@
 package com.gundf.fertighaus.enumerable;
 
+import android.app.Fragment;
+
 import com.gundf.fertighaus.R;
+import com.gundf.fertighaus.fragments.AugmentedRealityFragment;
+import com.gundf.fertighaus.fragments.CatalogFragment;
+import com.gundf.fertighaus.fragments.CustomMapFragment;
+import com.gundf.fertighaus.fragments.GalleryHousesFragment;
+import com.gundf.fertighaus.fragments.InfoFragment;
+import com.gundf.fertighaus.fragments.NewsFragment;
+import com.gundf.fertighaus.fragments.PanoramasFragment;
 
 public enum MenuItems {
 
@@ -47,5 +56,35 @@ public enum MenuItems {
 
     public int getIdImage() {
         return mIdImage;
+    }
+
+    public Fragment getFragment() {
+        Fragment fragment;
+        switch (this) {
+            case GALLERY:
+                fragment = new GalleryHousesFragment();
+                break;
+            case NEWS:
+                fragment = new NewsFragment();
+                break;
+            case CATALOG:
+                fragment = new CatalogFragment();
+                break;
+            case PANORAMA:
+                fragment = new PanoramasFragment();
+                break;
+            case AUGMENTED_REALITY:
+                fragment = new AugmentedRealityFragment();
+                break;
+            case MAP:
+                fragment = new CustomMapFragment();
+                break;
+            case  INFO:
+                fragment = new InfoFragment();
+                break;
+            default:
+                fragment = null;
+        }
+        return fragment;
     }
 }
