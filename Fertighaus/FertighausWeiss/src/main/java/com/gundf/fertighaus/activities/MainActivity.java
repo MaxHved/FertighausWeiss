@@ -33,10 +33,6 @@ public class MainActivity extends Activity implements MenuFragment.NavigationCal
         mContainerFragment = fm.findFragmentById(R.id.content_frame);
         if(mContainerFragment == null) {
             updateContentFragment(new GalleryHousesFragment());
-//            mContainerFragment = new PanoramasFragment();
-//            fm.beginTransaction().
-//                    replace(R.id.content_frame, mContainerFragment).
-//                    commit();
         }
         mMenuFragment = fm.findFragmentById(R.id.left_frame);
         if(mMenuFragment == null) {

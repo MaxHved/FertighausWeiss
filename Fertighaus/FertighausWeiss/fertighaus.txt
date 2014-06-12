@@ -1,0 +1,16 @@
+Keystore file: fertighaus_keystore.jks
+Password: f3rt1g4aus
+*******************************************
+Key:
+Alias: fertighaus
+Password: sw0rd_fertighaus_pas
+*******************************************
+Certificate:
+First and Last Name: Max Heved
+Organization Unit: Gundf
+Organization: Gundf
+City or Loaction: Germany
+State or Province: Baden Wurtenberg
+Country code: 00
+
+*******************************************

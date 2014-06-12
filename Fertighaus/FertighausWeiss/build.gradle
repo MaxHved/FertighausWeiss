@@ -19,6 +19,14 @@ android {
         versionCode 1
         versionName '1.0'
     }
+    signingConfigs {
+        release {
+            storeFile file("fertighaus_keystore.jks")
+            storePassword "f3rt1g4aus"
+            keyAlias "fertighaus"
+            keyPassword "sw0rd_fertighaus_pas"
+        }
+    }
     buildTypes {
         release {
             runProguard false
@@ -31,7 +39,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.android.gms:play-services:4.3.23'
+    compile 'com.google.android.gms:play-services:4.4.52'
     compile 'com.github.kevinsawicki:http-request:5.2'
     compile 'org.roboguice:roboguice:2.0'
     compile 'com.google.code.gson:gson:2.2.4'
@@ -42,6 +50,5 @@ dependencies {
     compile 'com.octo.android.robospice:robospice-spring-android:1.4.12'
     compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
     compile 'com.j256.ormlite:ormlite-android:4.46'
-    compile project(':libraries:SlidingMenu')
     compile 'com.android.support:support-v4:+'
 }
