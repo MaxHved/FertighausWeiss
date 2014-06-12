@@ -3,6 +3,9 @@
 
     <string name="app_name">FertighausWeiss</string>
 
+    <string name="drawer_open">Menü öffnen</string>
+    <string name="drawer_close">Menü schließen</string>
+
     <string name="label_send_button">Senden</string>
     <string name="label_menu_gallery">Häusergalerie</string>
     <string name="label_menu_news">News / Aktionen</string>
@@ -19,6 +22,8 @@
     <string name="hint_phone">Telefon</string>
     <string name="label_check_ar_code_house">Musterhaus-AR-Code bestellen</string>
     <string name="label_check_catalog">Katalog bestelen</string>
+    <string name="label_menu">Menü</string>
+    <string name="label_contact">Contact</string>
 
 
 </resources>

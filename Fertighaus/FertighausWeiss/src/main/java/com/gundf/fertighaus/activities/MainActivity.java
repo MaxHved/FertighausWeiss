@@ -4,11 +4,14 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.gms.maps.MapsInitializer;
 import com.gundf.fertighaus.R;
@@ -21,9 +24,13 @@ import com.gundf.fertighaus.fragments.RequestFragment;
 public class MainActivity extends Activity implements MenuFragment.NavigationCallbacks {
 
     private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
+
     private Fragment mMenuFragment;
     private Fragment mContainerFragment;
     private Fragment mRequestFragment;
+
+    private int mIdTitle = R.string.label_menu_gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +65,46 @@ public class MainActivity extends Activity implements MenuFragment.NavigationCal
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow_right, Gravity.RIGHT);
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow_left, Gravity.LEFT);
+        mDrawerToggle = new ActionBarDrawerToggle(this,
+                mDrawerLayout, R.drawable.ic_drawer,
+                R.string.drawer_open, R.string.drawer_close) {
+            @Override
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                getActionBar().setTitle(mIdTitle);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                if(mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+                    getActionBar().setTitle(R.string.label_menu);
+                } else if(mDrawerLayout.isDrawerOpen(Gravity.RIGHT)) {
+                    getActionBar().setTitle(R.string.label_contact);
+                }
+            }
+
+        };
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
     private void initActionBar() {
         ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setLogo(R.drawable.ic_menu);
+        actionBar.setTitle(mIdTitle);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -104,6 +144,8 @@ public class MainActivity extends Activity implements MenuFragment.NavigationCal
 
     @Override
     public void direction(MenuItems item) {
+        mIdTitle = item.getIdLabel();
+        getActionBar().setTitle(mIdTitle);
         updateContentFragment(item.getFragment());
         mDrawerLayout.closeDrawer(Gravity.LEFT);
     }
